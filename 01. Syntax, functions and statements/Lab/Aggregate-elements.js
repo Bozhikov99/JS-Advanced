@@ -12,7 +12,7 @@ function solve(input)
     }
 
     console.log(sumResult);
-    console.log((inverseResult).toFixed(4))
+    console.log((inverseResult))
     console.log(concat);
 }
 
