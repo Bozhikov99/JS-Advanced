@@ -4,7 +4,6 @@ function solve(array, a, b)
     let end=array.indexOf(b)+1;
     let newArray=array.slice(start, end);
 
-    console.log(newArray);
     return newArray;
 }
 
