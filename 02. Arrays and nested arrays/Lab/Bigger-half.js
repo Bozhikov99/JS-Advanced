@@ -3,7 +3,7 @@ function solve(input)
     input.sort((a, b)=> a-b);
     let biggerHalf=input.slice(Math.floor(input.length/2));
 
-    console.log(`[${biggerHalf.join(', ')}]`);
+    return biggerHalf;
 }
 
 solve([4, 7, 2, 5]);
