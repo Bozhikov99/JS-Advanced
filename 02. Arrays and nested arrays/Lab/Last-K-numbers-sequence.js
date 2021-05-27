@@ -4,10 +4,11 @@ function solve(n, k)
 
     for (let i = 1; i < n;i++) {
 
-        for (let j = Math.max(0, i-k); j >= 0; j--) {
-                array[i]=0;
-                array[i]+=array[Math.abs(i-k)];
-        }
+       let currentIndex=Math.max(0, i-k);
+       let current=array.slice(currentIndex, currentIndex+k)
+       .reduce((a, b)=>a+b,0);
+
+       array.push(current);
     }
 
     console.log(`[${array.join(', ')}]`);
