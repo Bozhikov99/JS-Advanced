@@ -11,7 +11,7 @@ function solve(n, k)
        array.push(current);
     }
 
-    console.log(`[${array.join(', ')}]`);
+    return array;
 
 }
 
