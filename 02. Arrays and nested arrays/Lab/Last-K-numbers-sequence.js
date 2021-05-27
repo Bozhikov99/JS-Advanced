@@ -5,7 +5,8 @@ function solve(n, k)
     for (let i = 1; i < n;i++) {
 
         for (let j = Math.max(0, i-k); j >= 0; j--) {
-                array[i]+=array[i-k];
+                array[i]=0;
+                array[i]+=array[Math.abs(i-k)];
         }
     }
 
