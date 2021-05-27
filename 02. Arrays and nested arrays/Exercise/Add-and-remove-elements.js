@@ -15,7 +15,6 @@ function solve(input)
     if (array.length==0) {
         console.log('Empty');
     }
-
 }
 
 solve(['add', 
