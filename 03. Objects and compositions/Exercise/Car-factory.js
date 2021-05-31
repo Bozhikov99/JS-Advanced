@@ -30,10 +30,10 @@ function solve(order)
 
     let carEngine;
 
-    if (order.power>=smallEngine.power) {
+    if (order.power<=smallEngine.power) {
         carEngine=smallEngine;
     }
-    else if (order.power>=normalEngine.power) {
+    else if (order.power<=normalEngine.power) {
         carEngine=normalEngine;
     }
     else
