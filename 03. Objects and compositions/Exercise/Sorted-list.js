@@ -29,4 +29,3 @@ list.add(7);
 console.log(list.get(1));
 list.remove(1);
 console.log(list.get(1));
-console.log(list.get(100000));
