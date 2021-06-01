@@ -22,7 +22,7 @@ function solve(){
 
                 cast(spell){
                     this.mana--;
-                    console.log(`${this.name} cast ${spell}!`);
+                    console.log(`${this.name} cast ${spell}`);
                 }
             }
 
