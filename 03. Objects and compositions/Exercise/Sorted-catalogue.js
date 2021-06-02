@@ -33,8 +33,6 @@ function solve(input)
             console.log(` ${p}: ${currentPrice}`);
         }
     }
-    
-    console.log();
 }
 
 solve([
