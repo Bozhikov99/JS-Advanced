@@ -1,6 +1,8 @@
 function extract(content) {
     let regEx=/\(([^)]+)\)/g
-    let matches=content.match(regEx);
+    let matches=document.getElementById('content')
+    .textContent
+    .match(regEx);
 
     let output=[];
 
