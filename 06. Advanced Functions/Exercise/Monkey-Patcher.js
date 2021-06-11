@@ -1,25 +1,25 @@
 function solution(cmd){
 
     const operations={
-        downvote: (post)=>post.downvotes++,
-        upvote: (post)=>post.upvotes++,
-        score: (post) =>{
-            let totalVotes=post.upvotes+post.downvotes;
+        downvote: ()=>this.downvotes++,
+        upvote: ()=>this.upvotes++,
+        score: () =>{
+            let totalVotes=this.upvotes+this.downvotes;
             let status='';
-            let score=[post.upvotes, post.downvotes, post.upvotes-post.downvotes];
+            let score=[this.upvotes, this.downvotes, this.upvotes-this.downvotes];
 
             if (totalVotes>50) {
-                let obs=Math.ceil(Math.max(post.upvotes, post.downvotes)*0.25);
-                Math.ceil(post.upvotes*0.25);
+                let obs=Math.ceil(Math.max(this.upvotes, this.downvotes)*0.25);
+                Math.ceil(this.upvotes*0.25);
 
-                score[0]=+obs;
-                score[1]=+obs;
+                score[0]+=obs;
+                score[1]+=obs;
             }
 
-            if (post.upvotes/totalVotes>0.66) {
+            if (this.upvotes/totalVotes>0.66) {
                 status='hot';
             } 
-            else if(post.upvotes-post.downvotes<0){
+            else if(this.upvotes-this.downvotes<0){
                 status='unpopular';
             }
             else if(totalVotes>100){
@@ -36,19 +36,19 @@ function solution(cmd){
         }
     }
 
-    return operations[cmd](post);
+    return operations[cmd]();
 }
 
-let post = {
+let obj = {
     id: '3',
     author: 'emil',
     content: 'wazaaaaa',
     upvotes: 100,
     downvotes: 100
 };
-solution.call(post, 'upvote');
-solution.call(post, 'downvote');
-let score = solution.call(post, 'score');
+solution.call(obj, 'upvote');
+solution.call(obj, 'downvote');
+let score = solution.call(obj, 'score');
 console.log(score ); // [127, 127, 0, 'controversial']
-solution.call(post, 'downvote');          // (executed 50 times)
-score = solution.call(post, 'score');
+solution.call(obj, 'downvote');          // (executed 50 times)
+score = solution.call(obj, 'score');
