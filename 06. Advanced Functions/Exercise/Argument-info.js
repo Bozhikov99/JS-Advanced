@@ -10,20 +10,13 @@ function info(...input){
         }
 
         typesObj[currentType]++;
-
-        printCurrent(currentType, t);
+        console.log(`${currentType}: ${t}`);
     }
 
-    let test=Object.entries(typesObj).sort((a, b)=> b[1]-a[1])
+    let test=Object.keys(typesObj)
+    .sort((a, b)=> typesObj[b]-typesObj[a])
+    .forEach(x=>console.log(`${x}: ${typesObj[x]}`))
 
-    for (const type of test) {
-        console.log(`${type[0]} = ${[type[1]]}`);
-    }
-
-
-    function printCurrent(type, value){
-        console.log(`${type}: ${value}`);
-    }
 }
 
-info('cat', 42, function () { console.log('Hello world!');})
+info(1,'cat', 42, function () { console.log('Hello world!');})

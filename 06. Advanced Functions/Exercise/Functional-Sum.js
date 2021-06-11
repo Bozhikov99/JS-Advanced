@@ -14,4 +14,4 @@ function add(num){
     return adding;
 }
 
-console.log(add(1));
+console.log(add(1)(2));
