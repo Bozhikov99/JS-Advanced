@@ -19,12 +19,14 @@ function factory(cards){
     function generateCard(face, suit){
             if (!cardFaces.includes(face)||
             !cardSuits[suit]) {
-            throw new Error(`Invalid Card: ${face}${suit}`);
+            console.log(`Invalid Card: ${face}${suit}`);
         }
 
-        let output=`${face}${cardSuits[suit]}`;
-
-        return output;
+        return {
+            face, suit, toString: ()=> {
+                return face+suit;
+            }
+        };
     }
 
     console.log(cardArr.join(' '));
