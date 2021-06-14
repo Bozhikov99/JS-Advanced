@@ -86,6 +86,6 @@ describe('false argument type tests', ()=>{
         let arg="Koga?";
         let expected=undefined;
 
-        assert.strictEqual(expected, lookupChar(arg, index))
-    })
+        assert.strictEqual(expected, lookupChar(arg, index));
+    });
 });
