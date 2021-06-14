@@ -19,7 +19,7 @@ function factory(cards){
     function generateCard(face, suit){
             if (!cardFaces.includes(face)||
             !cardSuits[suit]) {
-            console.log(`Invalid Card: ${face}${suit}`);
+            console.log(`Invalid card: ${face}${suit}`);
         }
 
         return {
