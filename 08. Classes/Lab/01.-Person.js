@@ -1,13 +1,20 @@
-class Person{
-    constructor(firstName, lastName, age, email){
+function solve() {
 
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.age=age;
-        this.email=email;
-    }
+    class Person {
+        constructor(firstName, lastName, age, email) {
 
-    toString(){
-        return `${this.firstName} ${this.lastName} (age: ${this.age} email: ${this.email})`
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.email = email;
+        }
+
+        toString() {
+            return `${this.firstName} ${this.lastName} (age: ${this.age}, email: ${this.email})`
+        }
+
+        
     }
 }
+
+module.exports=Person;
