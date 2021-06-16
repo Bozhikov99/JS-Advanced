@@ -20,4 +20,6 @@ function solve(){
     people.push(new Person('SoftUni'))
     people.push(new Person('Stephan', 'Johnson', 25))
     people.push(new Person('Gabriel', 'Peterson', 24, 'g.p@gmail.com'))
+
+    return people;
 }
