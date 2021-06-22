@@ -1,4 +1,4 @@
-function solve() {
+(function solve() {
 
     Array.prototype.last = function(){
         return this[this.length-1];
@@ -19,4 +19,4 @@ function solve() {
     Array.prototype.average=function(){
         return this.reduce((acc, x)=>acc+=x,0)/this.length;
     }
-}
+})();
