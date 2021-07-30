@@ -18,7 +18,7 @@ async function register(e) {
     e.preventDefault();
     let formData = new FormData(e.target);
     let password = formData.get('password');
-    let repeatPassowrd = formData.get('repeatPassword');
+    let repeatPassword = formData.get('repeatPassword');
     let email = formData.get('email');
 
     let user = {
@@ -27,11 +27,18 @@ async function register(e) {
     }
 
 
-    if (email == '' ||
-        password != repeatPassowrd ||
-        password.length < 6) {
-        alert('Invalid data!');
+    if (email == '') {
+        alert('Email cannot be empty');
+        throw new Error('Email cannot be empty');
     }
+    if (password.length < 6) {
+        alert('Password must be at least 6 characters long');
+        throw new Error('Password must be at least 6 characters long');
+    } else if (password != repeatPassword) {
+        alert('Passwords do not match');
+        throw new Error('Passwords do not match');
+    }
+
 
     let url = 'http://localhost:3030/users/register';
     let result = await jsonRequest(url, 'POST', user);

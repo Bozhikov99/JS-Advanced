@@ -1,7 +1,7 @@
 let commentElement = document.querySelector('.comment');
 let replyForm = document.querySelector('.answer form');
 let commentsElement = document.querySelector('#user-comment');
-let homeElement=document.querySelector('li a');
+let homeElement = document.querySelector('li a');
 
 homeElement.addEventListener('click', goHome);
 replyForm.addEventListener('submit', createReply);
@@ -12,11 +12,13 @@ fetch(`http://localhost:3030/jsonstore/collections/myboard/posts/${localStorage.
         commentElement.appendChild(createHtmlTopic(res));
     });
 
-fetch(`http://localhost:3030/jsonstore/collections/myboard/comments?where=postId%3D"${localStorage.getItem('topicId')}`)
+fetch(`http://localhost:3030/jsonstore/collections/myboard/comments`)
     .then(res => res.json())
     .then(function (res) {
         Object.values(res).forEach(r => {
-            commentElement.appendChild(createHtmlReply(r));
+            if (r.postId === localStorage.getItem('topicId')) {
+                commentElement.appendChild(createHtmlReply(r));
+            }
         });
     });
 
@@ -49,6 +51,9 @@ function createReply(e) {
 }
 
 function createHtmlTopic(t) {
+    let themeNameElement = document.querySelector('.theme-name h2');
+    themeNameElement.textContent = t.title;
+
     let headerDivElement = document.createElement('div');
     headerDivElement.classList.add('header');
 
@@ -155,6 +160,6 @@ function getReplyTime() {
     return `${day}/${month}/${year}, ${hours}:${minutes}:${seconds} ${format}`;
 }
 
-function goHome(){
+function goHome() {
     location.assign('index.html');
 }
